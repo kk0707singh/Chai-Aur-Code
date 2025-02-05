@@ -1,19 +1,21 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 
 function App() {
   const [length, setLength] = useState(8)
   const [numberAllowed, setNumberAllowed] = useState(false);
   const [charAllowed, setCharAllowed] = useState(false);
   const [pass, setPass] = useState("")
+  // useRef
+  const passRef = useRef(null)
   const passwordGenerator = useCallback(()=>{
     let pass = ""
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
     if (numberAllowed) str+= "0123456789"
     if (charAllowed) str+= "~!@#$%^&*(){}[]?/=+"
 
-    for (let i = 1; i <= array.length; i++) {
+    for (let i = 1; i <= length; i++) {
       let char = Math.floor(Math.random()*str.length+1)
-      pass = str.charAt(char)
+      pass += str.charAt(char)
       
     }
     setPass(pass)
@@ -21,9 +23,18 @@ function App() {
 
   }, [length, numberAllowed, charAllowed, setPass])
 
+  const copyPasswordToClipboard = useCallback(() => {
+    passRef.current?.select()
+    window.navigator.clipboard.writeText(pass)
+  }, [pass])
+
+  useEffect(() => {
+    passwordGenerator()
+  }, [length, numberAllowed, charAllowed, passwordGenerator])
+
   return (
 
-    <div className='w-full max-w-md mx-auto shadow-md rounded-lg px-4 my-8 text-orange-500 bg-grey-900'>
+    <div className='w-full max-w-md mx-auto shadow-lg rounded-lg px-4 my-8 text-orange-500 bg-grey-20000'>
       <h1 className='text-red text-center my-3'>Password Generator</h1>
       <div className='flex shadow rounded-lg overflow-hidden mb-4'>
         <input 
@@ -32,8 +43,11 @@ function App() {
         className='outline-none w-full py-1 px-3'
         placeholder='password'
         readOnly
+        ref = {passRef}
         />
-        <button className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0'>Copy</button>
+        <button 
+        onClick={copyPasswordToClipboard}
+        className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0'>Copy</button>
       </div>
       <div className='flex text-sm gap-x-2'>
         <div className='flex items-center gap-x-1'>
@@ -64,7 +78,7 @@ function App() {
           defaultChecked={charAllowed}
           id='characterInput'
           onChange={()=>{
-            setcharAllowed((prev)=>!prev);
+            setCharAllowed((prev)=>!prev);
           }}
           />
 
