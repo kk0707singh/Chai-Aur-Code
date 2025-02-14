@@ -5,6 +5,7 @@ import FoodItems from "./components/FoodItems"
 import ErrorMessage from "./components/ErrorMessage"
 
 function App() {
+  // let foodItems = ['Daal', 'Chawal', 'Roti', 'Hari Sabji', 'Dudh Dahi']
 
   return (
     <>

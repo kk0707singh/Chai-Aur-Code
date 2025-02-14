@@ -1,11 +1,12 @@
 import React from 'react'
+import Item from './Item'
 
 function FoodItems() {
     let foodItems = ['Daal', 'Chawal', 'Roti', 'Hari Sabji', 'Dudh Dahi']
 
     return (
     <ul className="list-group">
-        {foodItems.map((item)=><li className="list-group-item">{item}</li>)}
+        {foodItems.map((item)=>(<Item foodItems={item}></Item>))}
     </ul>
     )
 }
