@@ -10,7 +10,7 @@ function App() {
     <center className="todo-container">
       <AppName></AppName>
       <AddTodo></AddTodo>
-      <div class='item-container'>
+      <div className='item-container'>
       <ToDo1></ToDo1>
       <ToDo2></ToDo2>
       </div>
