@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Item(props) {
+function Item({foodItems}) {
     return (
-        <li key={props.item} className="list-group-item">{props.foodItems}</li>
+        <li className="list-group-item kg-item">{foodItems}</li>
     )
 }
 
