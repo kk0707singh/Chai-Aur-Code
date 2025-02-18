@@ -6,7 +6,8 @@ function FoodItems({ items }) {
 
     return (
     <ul className="list-group">
-        {items.map((item)=>(<Item key={item} foodItems={item}></Item>))}
+        {items.map((item)=>(<Item key={item} foodItems={item}
+        handleBuyButton={() => console.log(`${item} clicked`)}></Item>))}
     </ul>
     )
 }
