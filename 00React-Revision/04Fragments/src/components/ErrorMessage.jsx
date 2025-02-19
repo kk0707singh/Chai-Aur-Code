@@ -5,7 +5,7 @@ function ErrorMessage({ items }) {
 
     return (
         <>
-        {items.length === 0 ? <h3>Iam still hungrey</h3> : null}
+        {items.length === 0 ? <h3>I'am still Hungry</h3> : null}
         </>
     )
 }
