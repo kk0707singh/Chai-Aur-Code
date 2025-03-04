@@ -7,6 +7,20 @@
 .sidebar{
   min-height: 800px;
 }
+
+.post-card{
+  margin: 20px 50px;
+}
+
+.hashtag{
+  margin: 0px 3px;
+}
+.reactions{
+  margin: 30px 0 0 0;
+}
+
 .create-post{
-  margin-left: 10px;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 50px;
 }

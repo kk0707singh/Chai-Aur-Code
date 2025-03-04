@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
-import Post from './Post'
-import { PostList as PostListData } from '../store/Post-list-store'
+import { useContext } from 'react';
+import Post from './Post';
+import { PostListData } from '../store/Post-list-store';
 
 const PostList = () => {
     const {postList} = useContext(PostListData);
