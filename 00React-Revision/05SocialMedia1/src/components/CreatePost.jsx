@@ -43,7 +43,7 @@ function CreatePost() {
         //   .then(console.log);
 
         addPost(userId, postTitle, postBody, reactions, tags);
-        Navigate("/");
+        navigate("/");
     }
 
 
